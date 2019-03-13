@@ -4,6 +4,7 @@ import Card from './Card.js';
 import CardItem from './CardItem.js';
 import Input from './Input.js';
 import Button from './Button.js';
+import Spinner from './Spinner.js';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
@@ -19,6 +20,20 @@ class LoginForm extends Component {
     onButtonPress() {
         const { email, password } = this.props;
         this.props.loginUser({ email, password });
+    }
+
+    renderButton() {
+        if (this.props.loading) {
+            return <Spinner 
+                        size="large" 
+                    />
+        }
+        return (
+                    <Button
+                        onPress={this.onButtonPress.bind(this)}
+                        label="Login"
+                    />
+        );
     }
 
     renderError() {
@@ -55,10 +70,7 @@ class LoginForm extends Component {
                 </CardItem>
                 {this.renderError()}
                 <CardItem>
-                    <Button
-                        onPress={this.onButtonPress.bind(this)}
-                        label="Login"
-                    />
+                {this.renderButton()}
                 </CardItem>
             </Card>
         )
@@ -77,7 +89,8 @@ const mapStateToProps = state => {
     return {
         email: state.auth.email,
         password: state.auth.password,
-        error: state.auth.error
+        error: state.auth.error,
+        loading: state.auth.loading
     };
 };
 
