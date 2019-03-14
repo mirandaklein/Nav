@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Picker } from 'react-native';
 import Card from './Card.js';
 import CardItem from './CardItem.js';
 import Input from './Input.js';
@@ -26,6 +27,21 @@ class EmployeeCreate extends Component{
                     value={this.props.phone}
                     onChangeText={text => this.props.employeeUpdate({ prop: 'phone', value: text })}
                     />
+                </CardItem>
+                <CardItem>
+                    <Picker 
+                        style={{ flex: 1 }}
+                        selectedValue={this.props.shift}
+                        onValueChange={day => this.props.employeeUpdate( {prop: 'shift', value: day})}
+                    >
+                        <Picker.Item label='Monday' value='Monday'/>
+                        <Picker.Item label='Tuesday' value='Tuesday'/>
+                        <Picker.Item label='Wednesday' value='Wednesday'/>
+                        <Picker.Item label='Thursday' value='Thursday'/>
+                        <Picker.Item label='Friday' value='Friday'/>
+                        <Picker.Item label='Saturday' value='Saturday'/>
+                        <Picker.Item label='Sunday' value='Sunday'/>
+                    </Picker>
                 </CardItem>
                 <CardItem>
                     <Button

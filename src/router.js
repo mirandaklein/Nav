@@ -19,7 +19,7 @@ const RouterComponent = () => {
                     />
                 </Scene>
 
-                <Scene key="main" sceneStyle={{ paddingTop: 65 }}>
+                <Scene key="main">
                     <Scene
                         onRight={() => Actions.employeeCreate()}
                         rightTitle="Add"
