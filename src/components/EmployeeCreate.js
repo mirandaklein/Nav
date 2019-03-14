@@ -60,9 +60,10 @@ const styles= {
     pickerTextStyle: {
         fontSize: 18,
         paddingLeft: 25,
+        paddingTop: 10,
         backgroundColor: '#fff',
-        borderBottomWidth: 1,
-        padding: 5
+        padding: 5,
+        position: 'relative'
     }
 }
 
