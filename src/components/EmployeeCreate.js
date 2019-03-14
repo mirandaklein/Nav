@@ -5,10 +5,16 @@ import CardItem from './CardItem.js';
 import Input from './Input.js';
 import Button from './Button.js';
 import { connect } from 'react-redux';
-import { employeeUpdate } from '../actions';
+import { employeeUpdate, employeeCreate } from '../actions';
 
 
-class EmployeeCreate extends Component{
+class EmployeeCreate extends Component{ 
+
+    onButtonPress(){
+        const { name, phone, shift} = this.props;
+        this.props.employeeCreate({ name, phone, shift: shift || 'Monday' });
+    };
+
     render(){
         return(
             <Card>
@@ -48,6 +54,7 @@ class EmployeeCreate extends Component{
                 <CardItem>
                     <Button
                     label='Create'
+                    onPress={this.onButtonPress.bind(this)}
                     />
                 </CardItem>
                 
@@ -71,4 +78,4 @@ const mapStateToProps = (state) => {
     const { name, phone, shift } = state.employeeForm;
     return { name, phone, shift };
 }
-export default connect (mapStateToProps, { employeeUpdate })(EmployeeCreate);
+export default connect (mapStateToProps, { employeeUpdate, employeeCreate })(EmployeeCreate);
