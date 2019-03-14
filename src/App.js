@@ -7,6 +7,7 @@ import firebase from 'firebase';
 import ReduxThunk from 'redux-thunk';
 import { config } from './config.js';
 import LoginForm from './components/LoginForm.js'
+import Router from './router.js';
 
 export default class App extends Component{
 
@@ -20,8 +21,7 @@ export default class App extends Component{
     return(
       <Provider store={store}>
         <View style={styles.container}>
-          <LoginForm
-          />
+          <Router />
         </View>
       </Provider>
     );
@@ -30,7 +30,6 @@ export default class App extends Component{
 const styles = {
   container: {
     flex: 1,
-    justifyContent: 'center',
     backgroundColor: '#F5FCFF',
   }
 };

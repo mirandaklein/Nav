@@ -49,30 +49,30 @@ class LoginForm extends Component {
     }
     render() {
         return(
-            <Card>
-                <CardItem>
-                    <Input
-                        label="email"
-                        placeholder="email@email.com"
-                        onChangeText={this.onEmailChange.bind(this)}
-                        value={this.props.email}
-                    />
-                </CardItem>
+                <Card>
+                    <CardItem>
+                        <Input
+                            label="email"
+                            placeholder="email@email.com"
+                            onChangeText={this.onEmailChange.bind(this)}
+                            value={this.props.email}
+                        />
+                    </CardItem>
 
-                <CardItem>
-                    <Input
-                        secureTextEntry
-                        label="Password"
-                        placeholder="password"
-                        onChangeText={this.onPasswordChange.bind(this)}
-                        value={this.props.password}
-                    /> 
-                </CardItem>
-                {this.renderError()}
-                <CardItem>
-                {this.renderButton()}
-                </CardItem>
-            </Card>
+                    <CardItem>
+                        <Input
+                            secureTextEntry
+                            label="Password"
+                            placeholder="password"
+                            onChangeText={this.onPasswordChange.bind(this)}
+                            value={this.props.password}
+                        /> 
+                    </CardItem>
+                    {this.renderError()}
+                    <CardItem>
+                    {this.renderButton()}
+                    </CardItem>
+                </Card>
         )
     }
 }
